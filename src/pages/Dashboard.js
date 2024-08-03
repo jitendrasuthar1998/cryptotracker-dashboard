@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Header from "../components/Common/Header";
 import Loader from "../components/Common/Loader";
 import Search from "../components/Dashboard/Search";
 import TabsComponent from "../components/Dashboard/Tabs";
@@ -28,13 +27,13 @@ function Dashboard() {
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       )
       .then((response) => {
-        console.log("RESPONSE>>>", response.data);
+        // console.log("RESPONSE>>>", response.data);
         setCoins(response.data);
         setPaginatedCoins(response.data.slice(0, 10));
         setLoading(false);
       })
       .catch((error) => {
-        console.log("ERROR>>>", error.message);
+        console.log("ERROR at getting coins >>>", error.message);
       });
   };
 
@@ -52,7 +51,7 @@ function Dashboard() {
   //   }
   // });
 
-  var filteredCoins = coins.filter(
+  const filteredCoins = coins.filter(
     (coin) =>
       coin.name.toLowerCase().includes(search.trim().toLowerCase()) ||
       coin.symbol.toLowerCase().includes(search.trim().toLowerCase())
@@ -67,7 +66,7 @@ function Dashboard() {
 
   return (
     <>
-      <Header />
+      
       {loading ? (
         <Loader />
       ) : (

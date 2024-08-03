@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Info from "../components/CoinPage/Info";
 import LineChart from "../components/CoinPage/LineChart";
 import ToggleComponents from "../components/CoinPage/ToggleComponent";
-import Header from "../components/Common/Header";
 import Loader from "../components/Common/Loader";
 import SelectCoins from "../components/ComparePage/SelectCoins";
 import List from "../components/Dashboard/List";
@@ -30,27 +29,31 @@ function Compare() {
   });
 
   useEffect(() => {
-    getData();
-  }, []);
 
-  const getData = async () => {
-    setLoading(true);
-    const coins = await get100Coins();
-    if (coins) {
-      setAllCoins(coins);
-      const data1 = await getCoinData(crypto1);
-      const data2 = await getCoinData(crypto2);
-      settingCoinObject(data1, setCoin1Data);
-      settingCoinObject(data2, setCoin2Data);
-      if (data1 && data2) {
-        // getPrices
-        const prices1 = await getPrices(crypto1, days, priceType);
-        const prices2 = await getPrices(crypto2, days, priceType);
-        settingChartData(setChartData, prices1, prices2);
-        setLoading(false);
+    const getData = async () => {
+      setLoading(true);
+      const coins = await get100Coins();
+      if (coins) {
+        setAllCoins(coins);
+        const data1 = await getCoinData(crypto1);
+        const data2 = await getCoinData(crypto2);
+        settingCoinObject(data1, setCoin1Data);
+        settingCoinObject(data2, setCoin2Data);
+        if (data1 && data2) {
+          // getPrices
+          const prices1 = await getPrices(crypto1, days, priceType);
+          const prices2 = await getPrices(crypto2, days, priceType);
+          settingChartData(setChartData, prices1, prices2);
+          setLoading(false);
+        }
       }
-    }
-  };
+    };
+
+    getData();
+
+  }, [crypto1, crypto2, days, priceType]);
+
+
 
   const onCoinChange = async (e, isCoin2) => {
     setLoading(true);
@@ -102,7 +105,6 @@ function Compare() {
 
   return (
     <div>
-      <Header />
       {loading || !coin1Data?.id || !coin2Data?.id ? (
         <Loader />
       ) : (

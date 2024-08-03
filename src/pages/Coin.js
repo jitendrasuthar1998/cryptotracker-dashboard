@@ -5,7 +5,6 @@ import LineChart from "../components/CoinPage/LineChart";
 import SelectDays from "../components/CoinPage/SelectDays";
 import ToggleComponents from "../components/CoinPage/ToggleComponent";
 import Button from "../components/Common/Button";
-import Header from "../components/Common/Header";
 import Loader from "../components/Common/Loader";
 import List from "../components/Dashboard/List";
 import { getCoinData } from "../functions/getCoinData";
@@ -23,24 +22,26 @@ function Coin() {
   const [priceType, setPriceType] = useState("prices");
 
   useEffect(() => {
+
+    const getData = async () => {
+      setLoading(true);
+      let coinData = await getCoinData(id, setError);
+      console.log("Coin DATA>>>>", coinData);
+      settingCoinObject(coinData, setCoin);
+      if (coinData) {
+        const prices = await getPrices(id, days, priceType, setError);
+        if (prices) {
+          settingChartData(setChartData, prices);
+          setLoading(false);
+        }
+      }
+    };
     if (id) {
       getData();
     }
-  }, [id]);
+  }, [days, id, priceType]);
 
-  const getData = async () => {
-    setLoading(true);
-    let coinData = await getCoinData(id, setError);
-    console.log("Coin DATA>>>>", coinData);
-    settingCoinObject(coinData, setCoin);
-    if (coinData) {
-      const prices = await getPrices(id, days, priceType, setError);
-      if (prices) {
-        settingChartData(setChartData, prices);
-        setLoading(false);
-      }
-    }
-  };
+
 
   const handleDaysChange = async (event) => {
     setLoading(true);
@@ -64,7 +65,6 @@ function Coin() {
 
   return (
     <>
-      <Header />
       {!error && !loading && coin.id ? (
         <>
           <div className="grey-wrapper">

@@ -1,6 +1,5 @@
 import React from "react";
 import EmailIcon from "@mui/icons-material/Email";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import "./styles.css";
