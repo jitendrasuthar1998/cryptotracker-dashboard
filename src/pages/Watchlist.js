@@ -7,7 +7,6 @@ function Watchlist() {
   const watchlist = JSON.parse(localStorage.getItem("watchlist"));
   const [coins, setCoins] = useState([]);
 
-
   useEffect(() => {
     const getData = async () => {
       const allCoins = await get100Coins();
@@ -15,17 +14,15 @@ function Watchlist() {
         setCoins(allCoins.filter((coin) => watchlist.includes(coin.id)));
       }
     };
-
     if (watchlist) {
       getData();
     }
   }, [watchlist]);
 
-
+  
 
   return (
     <div>
-      {/* <Header /> */}
       {watchlist?.length > 0 ? (
         <TabsComponent coins={coins} />
       ) : (

@@ -1,13 +1,11 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { RWebShare } from "react-web-share";
-import { toast } from "react-toastify";
-
 import Button from "../../Common/Button";
 import "./styles.css";
 import gradient from "../../../assets/gradient.png";
 import iphone from "../../../assets/iphone.png";
-
+import { motion } from "framer-motion";
+import { RWebShare } from "react-web-share";
+import { toast } from "react-toastify";
 
 function MainComponent() {
   return (

@@ -36,12 +36,13 @@ function Coin() {
         }
       }
     };
+
     if (id) {
       getData();
     }
   }, [days, id, priceType]);
 
-
+  
 
   const handleDaysChange = async (event) => {
     setLoading(true);

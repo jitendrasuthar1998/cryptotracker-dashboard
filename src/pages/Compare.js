@@ -50,10 +50,9 @@ function Compare() {
     };
 
     getData();
-
   }, [crypto1, crypto2, days, priceType]);
 
-
+ 
 
   const onCoinChange = async (e, isCoin2) => {
     setLoading(true);

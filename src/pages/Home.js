@@ -3,7 +3,10 @@ import MainComponent from "../components/LandingPage/MainComponent";
 
 function Home() {
   return (
-    <MainComponent />
+    <>
+      {/* <Header /> */}
+      <MainComponent />
+    </>
   );
 }
 
