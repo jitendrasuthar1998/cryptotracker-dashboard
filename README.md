@@ -1,5 +1,9 @@
 ## Cryptotracker App
 
+### Screenshot
+
+[![cryptotracker-app-screenshot.png](https://i.postimg.cc/HnxRD09x/cryptotracker-app-screenshot.png)](https://postimg.cc/5Yhn8CGd)
+
 ### Overview
 This application provides a platform to track cryptocurrency prices, compare different cryptocurrencies, and create a watchlist of preferred coins.
 
