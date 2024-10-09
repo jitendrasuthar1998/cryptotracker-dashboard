@@ -55,15 +55,15 @@ Cryptocurrency data is fetched from the [CoinGecko API](https://www.coingecko.co
 
 ### 💻 Screenshots
 
-1. Home
+### 1. Home
 
 [![crypto-tracker-home-page.png](https://i.postimg.cc/JzzCkN1Q/crypto-tracker-home-page.png)](https://postimg.cc/yktGqS3J)
 
-2. Dashboard
+### 2. Dashboard
 
 [![crypto-tracker-dashboard.png](https://i.postimg.cc/dVwtSZJ7/crypto-tracker-dashboard.png)](https://postimg.cc/TpN6KwLG)
 
-3. Compare
+### 3. Compare
 
 
 [![crypto-tracker-compare.png](https://i.postimg.cc/pLwkHv1n/crypto-tracker-compare.png)](https://postimg.cc/68hCrkK9)
